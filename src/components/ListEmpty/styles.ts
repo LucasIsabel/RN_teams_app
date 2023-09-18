@@ -1,0 +1,23 @@
+import { styled } from 'styled-components/native';
+import { SmileyXEyes } from 'phosphor-react-native';
+
+export const Container = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const Message = styled.Text`
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  text-align: center;
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  margin-top: 10px;
+`;
+
+export const SmileySadIcon = styled(SmileyXEyes).attrs(({ theme }) => ({
+  color: theme.COLORS.WHITE,
+  weight: 'thin',
+  size: 40,
+}))``;

@@ -1,37 +1,13 @@
 import HightLight from '@components/Hightlight';
+import ListEmpty from '@components/ListEmpty';
 import GroupCard from '@components/GroupCard';
+import { Container } from './styles';
 import { Header } from '@components/Header';
-import { Container, EmptyState } from './styles';
 import { FlatList } from 'react-native';
 import { useState } from 'react';
 
 export default function Groups() {
-  const [group, setGroup] = useState<{ name: string }[]>([
-    {
-      name: 'Lucas De Oliveira Isabel',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-    {
-      name: 'Carlos Santos',
-    },
-  ]);
+  const [groups, setGroups] = useState<{ name: string }[]>([]);
 
   const handleOnPress = () => {
     console.log('PRESSED');
@@ -42,15 +18,14 @@ export default function Groups() {
       <Header displayBackButton={false} />
       <HightLight title="Turmas" subtitle="jogue com a sua turma" />
       <FlatList
-        data={group}
+        data={groups}
         renderItem={({ item }) => (
           <GroupCard title={item.name} onPress={handleOnPress} />
         )}
         keyExtractor={(item) => item.name}
-        ListEmptyComponent={
-          <EmptyState> Nenhum time cadastrado .. </EmptyState>
-        }
+        ListEmptyComponent={<ListEmpty />}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={groups.length === 0 && { flex: 1 }}
       />
     </Container>
   );
