@@ -1,4 +1,4 @@
-import { styled } from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { SmileyXEyes } from 'phosphor-react-native';
 
 export const Container = styled.View`
@@ -9,10 +9,12 @@ export const Container = styled.View`
 `;
 
 export const Message = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_300};
-  text-align: center;
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_300};
+    text-align: center;
+    font-size: ${theme.FONT_SIZE.MD}px;
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+  `}
   margin-top: 10px;
 `;
 

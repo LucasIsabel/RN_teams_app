@@ -25,6 +25,7 @@ export default function Groups() {
         keyExtractor={(item) => item.name}
         ListEmptyComponent={<ListEmpty />}
         showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
       />
     </Container>
